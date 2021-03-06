@@ -1,15 +1,13 @@
-import Head from "next/head";
+import EventList from "../components/events/eventList";
+import { getFeaturedEvents } from "../Data/dummyData";
 
-export default function Home() {
+function Home() {
+  const featuredEvents = getFeaturedEvents();
   return (
     <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        <h1>HELLOOOOO</h1>
-      </main>
+      <EventList data={featuredEvents} />
     </div>
   );
 }
+
+export default Home;
