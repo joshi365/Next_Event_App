@@ -1,7 +1,9 @@
 import React from "react";
-import Link from "next/link";
 import classes from "./EventItem.module.css";
 import Button from "../ReUsableComponents/Button";
+import DateIcon from "../icons/date-icon";
+import AddressIcon from "../icons/address-icon";
+import ArrowRightIcon from "../icons/arrow-right-icon";
 
 const EventItem = ({ data }) => {
   const readableDate = new Date(data.date).toLocaleDateString("en-US", {
@@ -23,18 +25,20 @@ const EventItem = ({ data }) => {
             <h2>{data.title}</h2>
           </div>
           <div className={classes.date}>
-            <time>
-              <b>Date: </b> {data.date}
-            </time>
+            <DateIcon />
+            <time>{data.date}</time>
           </div>
-          <div className={classes.adress}>
-            <address>
-              <b>Place: </b>
-              {formattedAdres}
-            </address>
+          <div className={classes.address}>
+            <AddressIcon />
+            <address>{formattedAdres}</address>
           </div>
           <div className={classes.actions}>
-            <Button link={exploreLink}>Explore Event</Button>
+            <Button link={exploreLink}>
+              <span>Explore Event</span>
+              <span className={classes.icon}>
+                <ArrowRightIcon />
+              </span>
+            </Button>
           </div>
         </div>
       </li>
